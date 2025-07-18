@@ -3,19 +3,21 @@ services:
     name: frontend
     env: docker
     dockerfilePath: Dockerfile
-    buildCommand: ""
-    startCommand: ""
     plan: free
     autoDeploy: true
     branch: main
+    ports:
+      - 80
 
   - type: web
     name: backend
     env: docker
     dockerfilePath: backend/Dockerfile
-    buildCommand: ""
-    startCommand: ""
     plan: free
     autoDeploy: true
     branch: main
- 
+    ports:
+      - 3000
+    envVars:
+      - key: PORT
+        value: 3000
